@@ -4,7 +4,6 @@ pipeline {
     parameters {
     string(name: 'SCRIPT_NAME', defaultValue: 'start1.sh', description: 'contain dos13')
     string(name: 'test', defaultValue: 'test.sh', description: 'test for cheak scripts')
-    string(name: 'src_from_copy', defaultValue: "${env.WORKSPACE}/${env.BUILD_NUMBER}.gz", description: 'path to file')
     string(name: 'dest_to_copy', defaultValue: '/home/ubuntu/lesson_36/For_Jenkins/lesson37', description: 'path to file')
     }
     options { 
@@ -34,7 +33,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sshagent(credentials:['my_key']) {
-                sh "scp -o StrictHostKeyChecking=no ${src_from_copy} ubuntu@192.168.182.15:${dest_to_copy}"
+                sh "scp -o StrictHostKeyChecking=no ${env.WORKSPACE}/${env.BUILD_NUMBER}.gz ubuntu@192.168.182.15:${dest_to_copy}"
                 }        
             }
         }

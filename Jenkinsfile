@@ -4,7 +4,7 @@ pipeline {
     parameters {
     string(name: 'SCRIPT_NAME', defaultValue: 'start1.sh', description: 'contain dos13')
     string(name: 'test', defaultValue: 'test.sh', description: 'test for cheak scripts')
-    string(name: 'dest_to_copy', defaultValue: '/home/ubuntu/lesson_36/For_Jenkins/lesson37', description: 'path to file')
+    string(name: 'dest_to_copy', defaultValue: '/home/ubuntu', description: 'path to file')
     }
     options { 
         disableConcurrentBuilds() 

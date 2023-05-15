@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sshagent(credentials:['my_key']) {
+                sshagent(credentials:['host_user']) {
                 sh "scp -o StrictHostKeyChecking=no ${env.BUILD_NUMBER}.gz ubuntu@192.168.182.15:${dest_to_copy}"
                 }        
             }
